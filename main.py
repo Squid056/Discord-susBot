@@ -1,7 +1,7 @@
 import os
 import discord 
 
-#client = discord.Client()
+#client log and watching status 
 activity = discord.Activity(name='you', type=discord.ActivityType.watching)
 client = discord.Client(activity=activity)
 
@@ -11,13 +11,16 @@ async def on_ready():
 
 
 
+# on message sus say 
 @client.event
 async def on_message(message):
+  emoji = '\N{THUMBS UP SIGN}'
   if message.author == client.user:
     return
 
   if message.content.startswith('sus'):
     await message.channel.send('ඞ')
+    await message.add_reaction(emoji)
 
 
 
