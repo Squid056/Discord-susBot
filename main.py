@@ -14,14 +14,17 @@ async def on_ready():
 # on message sus say 
 @client.event
 async def on_message(message):
-  emoji = '\N{THUMBS UP SIGN}'
+  #emoji = '\N{THUMBS UP SIGN}'
+  emoji = '👨‍🦯'
   if message.author == client.user:
+    await message.add_reaction(emoji)
     return
 
   if message.content.startswith('sus'):
     await message.channel.send('ඞ')
-    await message.add_reaction(emoji)
 
+  if message.content.startswith('hi'):
+    await message.author.send('👀')
 
 
 token = os.environ['BotToken']
