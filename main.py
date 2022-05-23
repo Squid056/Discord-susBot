@@ -1,6 +1,9 @@
 import os
 import discord 
- 
+from upkeep  import keep_alive
+
+
+token = os.environ['BotToken']
 activity = discord.Activity(name='you', type=discord.ActivityType.watching)
 client = discord.Client(activity=activity)
 embed = discord.Embed()
@@ -28,6 +31,5 @@ async def on_message(message):
     await message.channel.send(embed=embed)
   
 
-
-token = os.environ['BotToken']
+keep_alive()
 client.run(token)
